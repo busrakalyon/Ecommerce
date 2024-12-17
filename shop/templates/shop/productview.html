@@ -215,7 +215,7 @@ html, body {
 <!--  {% for item in items %}-->
   <!-- Left Column / Headphones Image -->
 
-    <img src="../../../static/shop/{{item.ProductImage_path}}" style="width:200px;height:200px" alt="Not Found">
+    <img src="{{ item.ProductImage_path.url }}" alt="{{ item.ProductName }}">
 
 <!--    <img data-image="blue" src="../static/shop/{{item.ProductImage_path}}" alt="">-->
 <!--    <img data-image="red" src="../static/shop/{{item.ProductImage_path}}" alt="">-->
@@ -233,7 +233,7 @@ html, body {
     </div>
 
     <div class="product-rating">
-      <span>Rating: {{ratings.Ratings__avg}}</span>
+      <span>Ratings: {{ratings.Ratings__avg}}</span>
 
     </div>
     <!-- Product Configuration -->
@@ -270,12 +270,12 @@ html, body {
       <form method="POST" action="/shoppingcart/update/" class="form">
         {%csrf_token%}
         <input type="hidden" name="product_id" value={{item.ItemID}}>
-        <button type="submit" class="btn btn-info btn-md">Add to cart</button>
+        <button type="submit" class="btn btn-info btn-md">Sepete ekle</button>
       </form>
 
     </div>
     <p></p>
-    <h5>Add a Review</h5>
+    <h5>Değerlendir</h5>
     <div>
     <form action="{% url 'shop:add_review' item.ItemID item.slug_name %}" method="post">
       {% csrf_token %}

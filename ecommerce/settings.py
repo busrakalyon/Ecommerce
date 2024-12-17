@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+from pathlib import Path
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
 ]
 
 MIDDLEWARE = [
@@ -82,17 +84,16 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'e-commerce',
         'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': '35.196.4.206',
+        'PASSWORD': '9393-Divina',
+        'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS':  {
-            'ssl': {'ca': 'ecommerce/SSL_Keys/server-ca.pem',
-            'cert': 'ecommerce/SSL_Keys/client-cert.pem',
-            'key': 'ecommerce/SSL_Keys/client-key.pem'
-            }
+            'ssl': None,
         }
     }
 }
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 # Password validation
@@ -134,14 +135,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static_my_proj"),
+    os.path.join(BASE_DIR, 'shop', 'static'),
 ]
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "static_root")
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "static_root")
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "media_root")
 
 
 LOGOUT_REDIRECT_URL = 'logout_page'

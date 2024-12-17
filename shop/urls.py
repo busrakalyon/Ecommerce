@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.shop_all, name='shop-all'),
@@ -14,3 +16,6 @@ urlpatterns = [
     path('sort/', views.sort, name='sort'),
     path('<int:id>/<slug:name>/review', views.add_review, name='add_review'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
