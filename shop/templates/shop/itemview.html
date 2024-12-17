@@ -213,9 +213,9 @@
   {%csrf_token%}
   <select name="sort_options">
     <option selected="selected" disabled>Sort by:</option>
-    <option value="low">Price: Lowest First</option>
-    <option value="high">Price: Highest First</option>
-    <option value="popular">Most Popular</option>
+    <option value="low">Artan Fiyat</option>
+    <option value="high">Azalan fiyat</option>
+    <option value="popular">En Popüler</option>
   </select>
   <input type="submit" value="Select">
 </form>
@@ -237,7 +237,7 @@
        {% endfor %}
 
        {% else %}
-           <h1>No items meet these details.</h1>
+           <h1>Bu ayrıntıları karşılayan öğe yok.</h1>
        {% endif %}
    </div>
 </div>
