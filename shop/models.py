@@ -15,7 +15,7 @@ class Item(models.Model):
     Price = models.DecimalField(max_digits=10, decimal_places=2)
     Size = models.DecimalField(max_digits=10, decimal_places=2)
     Color = models.CharField(max_length=255)
-    ProductImage = models.ImageField(upload_to='product_images/', default='default_image.jpg')  # Burayı güncelledik    Description = models.CharField(max_length=255)
+    ProductImage = models.ImageField(upload_to='product/', default='default_image.jpg')  # Burayı güncelledik    Description = models.CharField(max_length=255)
     SearchTerm = models.CharField(max_length=255)
     Variations = models.CharField(max_length=255)
 
